@@ -7,7 +7,7 @@
     "url": "git+https://github.com/dustn7020/wetube-reloaded.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "ys",
   "license": "MIT",
@@ -17,5 +17,11 @@
   "homepage": "https://github.com/dustn7020/wetube-reloaded#readme",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "nodemon": "^3.0.3"
   }
 }
