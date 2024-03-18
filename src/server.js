@@ -9,6 +9,16 @@ const PORT = 4000;
 
 const app = express();
 const logger = morgan("dev");
+
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views"); //views 의 경로를 설정
+/*
+Express는 html을 리턴하기 위해 pug 를 사용함
+1. pug 설치 : npm i pug
+2. pug를 뷰 엔진으로 설정 : app.set("view engin", "pug")
+3. pug 파일 생성
+*/
+
 app.use(logger);
 
 app.use("/", global);
