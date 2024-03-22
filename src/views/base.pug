@@ -2,6 +2,12 @@ doctype html
 html(lang="ko")
     include partials/head.pug
     body 
+        header 
+            h1=pageTitle
+            nav    
+                ul 
+                    li 
+                        a(href="/videos/upload") Upload Video
         main 
             block content
     include partials/footer.pug
