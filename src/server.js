@@ -1,12 +1,9 @@
 import express from "express";
 import morgan from "morgan";
-import "./db";
 
 import global from "./routers/globalRouter.js"; //바보같이 파일 생성시 확장자 안써줘서 에러 뜸!
 import user from "./routers/userRouter.js"; //그리고 import 할 때 자동완성이 됐는데, 뒤에 .js 붙여줘야 컴파일 에러 안 뜸
 import video from "./routers/videoRouter.js";
-
-const PORT = 4000;
 
 const app = express();
 const logger = morgan("dev");
@@ -71,7 +68,4 @@ app.get("/protected", handleProtected);
 app.get("/", handleHome);
 */
 
-const handleListening = () =>
-  console.log(`Server listenting on port http://localhost:${PORT} :)`);
-
-app.listen(PORT, handleListening);
+export default app;
