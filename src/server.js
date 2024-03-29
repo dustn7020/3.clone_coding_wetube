@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 
-import global from "./routers/globalRouter.js"; //바보같이 파일 생성시 확장자 안써줘서 에러 뜸!
+import root from "./routers/rootRouter.js"; //바보같이 파일 생성시 확장자 안써줘서 에러 뜸!
 import user from "./routers/userRouter.js"; //그리고 import 할 때 자동완성이 됐는데, 뒤에 .js 붙여줘야 컴파일 에러 안 뜸
 import video from "./routers/videoRouter.js";
 
@@ -25,7 +25,7 @@ express application이 form의 value를 이해할 수 있도록 하고,
 자바스크립트 형식으로 변형해줌
 */
 
-app.use("/", global);
+app.use("/", root);
 app.use("/videos", video);
 app.use("/users", user);
 
