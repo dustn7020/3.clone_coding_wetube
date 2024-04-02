@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import Video from "./models/Video.js";
 
-mongoose.connect("mongodb://localhost:27017/wetube");
+mongoose.connect(process.env.DB_URL);
 
 const db = mongoose.connection;
 

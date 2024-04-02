@@ -1,0 +1,18 @@
+세션 데이터가 쿠키에 저장되지 않음 - session id만 저장
+session 데이터는 서버에 저장 - session store에 저장해야 함
+connect-mongo는 세션을 mongoDB에 저장함 - 서버가 재시작되더라도 db에 저장되어 있음
+
+ : npm install connect-mongo
+
+
+깃에 못 올리는 환경 변수들을 설정하기
+1. env 파일 aksemfrl
+2. env 파일 .gitignore 추가하기
+3. 비밀로 해야하는 string을 process.env."환경변수" 로 바꾸기
+
+dotenv 사용하기
+-env 파일을 읽어 각각의 변수들을 process.env에 넣음
+-dotenv는 여러 언어로 구성
+ : npm i dotenv
+사용 : require("dotenv").config(); => 파일 전체에서 가장 먼저 사용해야 함.
+        -> 모든 파일에서 사용해야 하기 때문에 import 해주어야 함

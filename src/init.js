@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import "./db";
 import "./models/Video.js";
 import "./models/User.js";

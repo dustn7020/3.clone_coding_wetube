@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import bcrypt from "bcrypt";
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
@@ -28,11 +29,12 @@ export const postJoin = async (req, res) => {
       name,
       username,
       email,
-      password1,
+      password: password1,
       location,
     });
     return res.redirect("/login");
   } catch (error) {
+    console.log(error);
     return res
       .status(404)
       .render("join", { pageTitle, errorMessage: error._message });
@@ -42,18 +44,31 @@ export const postJoin = async (req, res) => {
 export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
 };
+
 export const postLogin = async (req, res) => {
+  const pageTitle = "Login";
   const { username, password } = req.body;
-  const exists = await User.exists({ username, password });
-  if (!exists) {
-    return res
-      .status(400)
-      .render("login", {
-        pageTitle: "Login",
-        errorMessage: "An account with this username does not exists.",
-      });
+  const user = await User.findOne({ username });
+  if (!user) {
+    return res.status(400).render("login", {
+      pageTitle,
+      errorMessage: "An account with this username does not exists.",
+    });
   }
-  return res.render("/", { pageTitle: "Home" });
+
+  const ok = await bcrypt.compare(password, user.password);
+
+  if (!ok) {
+    return res.status(400).render("login", {
+      pageTitle,
+      errorMessage: "Wrong password.",
+    });
+  }
+
+  req.session.loggedIn = true;
+  req.session.user = user;
+
+  return res.redirect("/");
 };
 
 export const edit = (req, res) => res.send("Edit User");
