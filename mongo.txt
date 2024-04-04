@@ -1,0 +1,15 @@
+몽고DB
+ - mongosh
+ - show dbs : db 보기
+ - show collections :테이블 보기
+ - use db명 : db 사용
+ - db.테이블명.find(), db.테이블명.remove({}) : 테이블 전체보기 및 전체삭제
+
+
+ 몽구스 함수
+  - find()
+  - findById()
+  - findByIdAndUpdate()
+  - save()
+  - populate() : 참조된 외래키의 나머지 값들을 가져옴
+  

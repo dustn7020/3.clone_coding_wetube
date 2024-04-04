@@ -1,4 +1,4 @@
-extends base.pug
+extends ../base.pug
 
 block content 
     if errorMessage 
@@ -7,6 +7,6 @@ block content
         label(for="video") Video File 
         input(type="file", accept="video/*", required, id="video", name="video")
         input(placeholder="title", required, type="text", name="title", maxlength=80)
-        input(placeholder="description", required, type="text", name="desription", minlength=20)
+        input(placeholder="description", required, type="text", name="desription", minlength=10)
         input(placeholder="HashTags, separated by comma", required, type="text", name="hashtags")
         input(type="submit", value="upload video")
