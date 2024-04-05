@@ -47,6 +47,7 @@ app.use(
 app.use(localsMiddleware);
 
 app.use("/upfile", express.static("upfile"));
+app.use("/static", express.static("assets"));
 
 app.use("/", root);
 app.use("/videos", video);
