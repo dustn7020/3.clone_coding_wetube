@@ -7,6 +7,7 @@ import root from "./routers/rootRouter.js"; //바보같이 파일 생성시 확�
 import user from "./routers/userRouter.js"; //그리고 import 할 때 자동완성이 됐는데, 뒤에 .js 붙여줘야 컴파일 에러 안 뜸
 import video from "./routers/videoRouter.js";
 import { localsMiddleware } from "./middlewares.js";
+import apiRouter from "./routers/apiRouter.js";
 
 const app = express();
 const logger = morgan("dev");
@@ -52,6 +53,8 @@ app.use("/static", express.static("assets"));
 app.use("/", root);
 app.use("/videos", video);
 app.use("/users", user);
+
+app.use("/api", apiRouter);
 
 /* chapter 3 에서 실습했던 내용
 const loggerMiddleware = (req, res, next) => {
