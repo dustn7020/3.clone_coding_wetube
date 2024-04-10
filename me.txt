@@ -43,11 +43,11 @@ oauth
 file
 multer => 파일 미들웨어, 파일을 업로드 할 수 있게 해줌
  : npm i multer 
-**사용방법 
-    1. form을 multipart form으로 만들어야 함(multipart/form-data)
-    2. 미들웨어 생성
-    3. 미들웨어 사용
-    4. 이미지 저장
+  **사용방법 
+      1. form을 multipart form으로 만들어야 함(multipart/form-data)
+      2. 미들웨어 생성
+      3. 미들웨어 사용
+      4. 이미지 저장
 
 
 webpack 
@@ -71,3 +71,9 @@ MinCssExtractPlugin
 - css 코드들을 따로 분리시킴
  : npm install --save-dev mini-css-extract-plugin
 
+
+프론트엔드에서 async, await를 사용하기 위해서는
+regeneratorRuntim을 설치해야 함
+ - 아니면 promise를 사용해야 함.
+   ex) navigator.mediaDevice.getUserMedia(contraints).then(function(stream){}).catch(function(error){})
+ : npm i regenerator-runtime
