@@ -1,7 +1,10 @@
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
+
 import MongoStore from "connect-mongo";
+
+import flash from "express-flash";
 
 import root from "./routers/rootRouter.js"; //바보같이 파일 생성시 확장자 안써줘서 에러 뜸!
 import user from "./routers/userRouter.js"; //그리고 import 할 때 자동완성이 됐는데, 뒤에 .js 붙여줘야 컴파일 에러 안 뜸
@@ -38,6 +41,8 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
+
+app.use(flash());
 
 // app.use((req, res, next) => {
 //   req.sessionStore.all((error, sessions) => {

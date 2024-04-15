@@ -101,6 +101,7 @@ export const postUpload = async (req, res) => {
     user.videos.push(newVideo._id);
     user.save();
 
+    req.flash("success", "Video Success");
     return res.redirect("/");
   } catch (error) {
     console.log(error);
@@ -124,6 +125,7 @@ export const deleteVideo = async (req, res) => {
       .render("errors/404", { pageTitle: "Video not found" });
   }
   if (String(video.owner) !== String(_id)) {
+    req.flash("error", "Not authorized");
     return res.status(403).redirect("/");
   }
 

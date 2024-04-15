@@ -101,3 +101,9 @@ WebAssembly
 
       await ffmpeg.exec(['-i', 'recording.webm', '-r', '60', 'output.mp4']);
   ```
+
+
+express-flash
+ - Flash message 
+ - 사용자에게 flash message를 남길 수 있게 해줌
+  : npm i express-flash 
